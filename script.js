@@ -41,7 +41,7 @@ async function fetchProfileData(uuid) {
         return cachedProfileData[uuid];
     }
     try {
-        const response = await fetch(`https://prismatic-caramel-fba963.netlify.app/profile/${uuid}`);
+        const response = await fetch(`http://localhost:3000/profile/${uuid}`);
         if (!response.ok) {
             console.error("Ошибка при получении данных профиля:", response.status, response.statusText);
             throw new Error('Ошибка при получении данных');
@@ -58,7 +58,7 @@ async function fetchProfileData(uuid) {
 
 async function fetchAchievementsData(uuid) {
     try {
-        const response = await fetch(`https://prismatic-caramel-fba963.netlify.app/achievements/${uuid}`);
+        const response = await fetch(`http://localhost:3000/achievements/${uuid}`);
         if (!response.ok) {
             const errorText = await response.text();
             throw new Error(`Ошибка при получении данных об ачивках: ${response.status} ${response.statusText} - ${errorText}`);
@@ -295,7 +295,7 @@ function displayAchievementsData(achievements) {
 
 async function fetchLeaderboardData(sortBy) {
     try {
-        const response = await fetch(`https://prismatic-caramel-fba963.netlify.app/leaderboard?sortBy=${sortBy}`)
+        const response = await fetch(`http://localhost:3000/leaderboard?sortBy=${sortBy}`)
         if (!response.ok) {
             throw new Error('Ошибка при получении данных для таблицы лидеров');
         }
@@ -310,7 +310,7 @@ async function fetchLeaderboardData(sortBy) {
 
 async function fetchMessagesByDate(uuid) {
     try {
-        const response = await fetch(`https://prismatic-caramel-fba963.netlify.app/profile/${uuid}/messagesByDate`);
+        const response = await fetch(`http://localhost:3000/profile/${uuid}/messagesByDate`);
         if (!response.ok) {
             const errorText = await response.text();
             throw new Error(`Ошибка при получении данных о сообщениях по дням: ${response.status} ${response.statusText} - ${errorText}`);
@@ -327,7 +327,7 @@ async function fetchShopData() {
         return shopDataCache;
     }
     try {
-        const response = await fetch(`https://prismatic-caramel-fba963.netlify.app/shop`);
+        const response = await fetch(`http://localhost:3000/shop`);
         if (!response.ok) {
             throw new Error('Ошибка при получении данных магазина');
         }
@@ -733,7 +733,7 @@ function showLoginButton() {
     loginButton.style.display = 'flex'; 
 
     loginButton.onclick = () => {
-        window.location.href = 'https://prismatic-caramel-fba963.netlify.app/auth/discord';
+        window.location.href = 'http://localhost:3000/auth/discord';
     };
 }
 
