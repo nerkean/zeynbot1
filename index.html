@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'"> -->
+    <title>Профиль пользователя</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./conference-512.webp">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="countdown">Обновление данных через: 5:00</div>
+    <div class="wrapper">
+        <div class="profile-container">
+            <div class="profile-header">
+                <img src="" class="profile-avatar" alt="Avatar">
+                <h1 class="profile-username"></h1>
+                <p class="profile-user-id"></p>
+                <p class="profile-user-position"></p>
+                <button class="discord-login" style="display: none;">
+                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/non_2x/discord-logo-discord-icon-transparent-free-png.png" alt="Discord Icon">
+                    Войти через Discord
+                </button>
+            </div>
+            <div class="profile-content">
+                <ul class="profile-tabs">
+                    <li class="profile-tab active" data-tab="stats">Статистика</li>
+                    <li class="profile-tab" data-tab="achievements">Достижения</li>
+                    <li class="profile-tab" data-tab="shop">Магазин</li>
+                </ul>
+                <div class="profile-tab-content" data-tab="stats">
+                    <div id="error-container"></div>
+                    <div class="profile-stats">
+                    </div>
+                    <div class="profile-staff-stats">
+                    </div>
+                </div>
+                <div class="profile-tab-content hidden" data-tab="achievements">
+                    <div class="profile-achievements">
+                    </div>
+                </div>
+                <div class="profile-tab-content hidden" data-tab="shop">
+                    <div class="shop-discount-info"></div>
+                    <div class="shop-items"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="leaderboards-container">
+            <div class="leaderboard-messages">
+                <h2>Таблица лидеров по сообщениям</h2>
+                <table class="leaderboard-table" id="messages-leaderboard">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Пользователь</th>
+                            <th>Сообщения</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard-voice">
+                <h2>Таблица лидеров по голосу</h2>
+                <table class="leaderboard-table" id="voice-leaderboard">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Пользователь</th>
+                            <th>Время</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard-stars">
+                <h2>Таблица лидеров по звездам</h2>
+                <table class="leaderboard-table" id="stars-leaderboard">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Пользователь</th>
+                            <th>Звёзды</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button class="logout-button" style="display: none;">Выход</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

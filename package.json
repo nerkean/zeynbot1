@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "discord.js": "^14.17.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.9.5",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^3.3.2",
+    "passport": "^0.7.0",
+    "passport-discord": "^0.1.4",
+    "serverless-http": "^3.2.0",
+    "undici": "^7.3.0",
+    "uuid": "^11.0.5"
+  }
+}
