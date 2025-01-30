@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3000;
 const LEADERBOARD_CACHE_TTL = 5 * 60; // 5 минут в секундах
 
 const corsOptions = {
-    origin: 'http://127.0.0.1:5500',
+    origin: 'https://prismatic-caramel-fba963.netlify.app/',
     optionsSuccessStatus: 200,
     credentials: true
 };
@@ -101,7 +101,7 @@ async function fetchUserGuildMember(userId) {
 passport.use(new DiscordStrategy({
     clientID: '1193621998505566350',
     clientSecret: 'dj2kcyHwAdyTkyjc8UciOr2vsvd6SvzY',
-    callbackURL: 'http://localhost:3000/auth/callback',
+    callbackURL: 'https://prismatic-caramel-fba963.netlify.app/auth/callback',
     scope: ['identify', 'guilds.members.read']
 },
 async (accessToken, refreshToken, profile, done) => {
@@ -453,7 +453,7 @@ app.get('/callback',
         if (!user) {
             return res.status(404).send('User not found');
         }
-        res.redirect(`http://127.0.0.1:5500/index.html?uuid=${user.uuid}`);
+        res.redirect(`https://prismatic-caramel-fba963.netlify.app/uuid=${user.uuid}`);
     }
 );
 
@@ -465,7 +465,7 @@ app.get('/auth/callback',
             if (!user) {
                 return res.status(404).send('User not found');
             }
-            res.redirect(`http://127.0.0.1:5500/index.html?uuid=${user.uuid}`);
+            res.redirect(`https://prismatic-caramel-fba963.netlify.app/uuid=${user.uuid}`);
         } catch (error) {
             console.error("Error in /auth/callback:", error);
             res.status(500).send("An error occurred during authentication.");
