@@ -101,7 +101,7 @@ async function fetchUserGuildMember(userId) {
 passport.use(new DiscordStrategy({
     clientID: '1193621998505566350',
     clientSecret: 'dj2kcyHwAdyTkyjc8UciOr2vsvd6SvzY',
-    callbackURL: 'https://prismatic-caramel-fba963.netlify.app/auth/callback',
+    callbackURL: 'http://localhost:3000/auth/callback',
     scope: ['identify', 'guilds.members.read']
 },
 async (accessToken, refreshToken, profile, done) => {
@@ -482,17 +482,6 @@ app.get('/logout', (req, res) => {
         res.redirect('/');
     });
 });
-
-app.get('/auth/callback', 
-    passport.authenticate('discord', { failureRedirect: '/' }),
-    async (req, res) => {
-        const user = await CommandStats.findOne({ userId: req.user.userId }).select('uuid');
-        if (!user) {
-            return res.status(404).send('User not found');
-        }
-        res.redirect(`http://127.0.0.1:5500/index.html?uuid=${user.uuid}`);
-    }
-);
 
 app.listen(PORT, () => {
     console.log(`🚀 API сервер запущен`);
